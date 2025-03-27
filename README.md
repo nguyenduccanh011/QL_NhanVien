@@ -148,24 +148,26 @@ Một ứng dụng web PHP/MySQL cơ bản để quản lý thông tin nhân vi�
 
 ## Cấu trúc File (Sơ lược)
 
-/
-|-- db_connect.php           # File cấu hình và thực hiện kết nối CSDL
-|-- index.php                # Trang chính hiển thị danh sách nhân viên, phân trang
-|-- login.php                # Form đăng nhập
-|-- process_login.php        # Xử lý logic đăng nhập, xác thực, tạo session
-|-- logout.php               # Xử lý đăng xuất, hủy session
-|-- add_nhanvien.php         # Form thêm nhân viên mới (chỉ admin)
-|-- process_add.php          # Xử lý logic thêm nhân viên vào CSDL (chỉ admin)
-|-- edit_nhanvien.php        # Form sửa thông tin nhân viên (chỉ admin)
-|-- process_edit.php         # Xử lý logic cập nhật thông tin nhân viên (chỉ admin)
-|-- delete_nhanvien.php      # Xử lý logic xóa nhân viên (chỉ admin)
-|-- create_admin.php         # Script TẠM THỜI để tạo user admin ban đầu (CẦN XÓA SAU KHI CHẠY)
-|-- images/                  # Thư mục chứa hình ảnh
-|   |-- man.jpg
-|   |-- woman.jpg
-|   |-- edit.png
-|   |-- delete.png
-|-- README.md                # File hướng dẫn này
+## Cấu trúc File (Sơ lược)
 
+Dưới đây là mô tả các file chính trong dự án:
+
+* **`db_connect.php`**: Chứa thông tin cấu hình và mã lệnh để kết nối đến cơ sở dữ liệu MySQL.
+* **`index.php`**: Trang chính của ứng dụng. Hiển thị danh sách nhân viên (có phân trang), kiểm tra trạng thái đăng nhập và vai trò người dùng để hiển thị các tùy chọn tương ứng (Xem, Thêm, Sửa, Xóa).
+* **`login.php`**: Hiển thị giao diện form đăng nhập cho người dùng nhập tên đăng nhập và mật khẩu.
+* **`process_login.php`**: Tiếp nhận và xử lý thông tin từ form đăng nhập. Xác thực thông tin với CSDL, tạo session nếu thành công và chuyển hướng người dùng.
+* **`logout.php`**: Xử lý yêu cầu đăng xuất bằng cách hủy session và chuyển hướng người dùng về trang đăng nhập.
+* **`add_nhanvien.php`**: Form dành cho quản trị viên (`admin`) để nhập thông tin của một nhân viên mới.
+* **`process_add.php`**: Xử lý dữ liệu được gửi từ `add_nhanvien.php`. Thực hiện lệnh `INSERT` vào CSDL để thêm nhân viên mới (chỉ `admin`).
+* **`edit_nhanvien.php`**: Form dành cho `admin` để chỉnh sửa thông tin của một nhân viên hiện có. Form này sẽ được điền sẵn dữ liệu cũ của nhân viên.
+* **`process_edit.php`**: Xử lý dữ liệu được gửi từ `edit_nhanvien.php`. Thực hiện lệnh `UPDATE` trong CSDL (chỉ `admin`).
+* **`delete_nhanvien.php`**: Xử lý yêu cầu xóa một nhân viên dựa trên `Ma_NV` được gửi đến. Thực hiện lệnh `DELETE` trong CSDL (chỉ `admin`, thường được gọi sau khi người dùng xác nhận).
+* **`create_admin.php`**: Script tiện ích, chạy **một lần duy nhất** để tạo tài khoản `admin` ban đầu trong CSDL. **Cần xóa file này sau khi chạy thành công.**
+* **`README.md`**: Chính là file này, cung cấp thông tin tổng quan, hướng dẫn cài đặt và sử dụng dự án.
+* **`images/`**: Thư mục chứa các file hình ảnh cần thiết cho giao diện:
+    * `man.jpg`: Hình đại diện giới tính nam.
+    * `woman.jpg`: Hình đại diện giới tính nữ.
+    * `edit.png`: Biểu tượng cho chức năng sửa.
+    * `delete.png`: Biểu tượng cho chức năng xóa.
 ---
 Chúc bạn cài đặt và sử dụng dự án thành công!
